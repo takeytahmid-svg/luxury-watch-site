@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HOROLOGIUM — Luxury Timepieces</title>
+
+  <!-- ======================================= -->
+  <!-- FACEBOOK PIXEL — Replace YOUR_PIXEL_ID  -->
+  <!-- ======================================= -->
+  <!--
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+    s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','YOUR_PIXEL_ID');
+    fbq('track','PageView');
+  </script>
+  -->
+
+  <!-- ======================================= -->
+  <!-- GOOGLE TAG MANAGER — Replace GTM-XXXXXX -->
+  <!-- ======================================= -->
+  <!--
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;
+  f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXX');
+  </script>
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold2: #E8C96A;
+      --black: #0B0B0B;
+      --dark: #141414;
+      --card: #1A1A1A;
+      --border: rgba(201,168,76,0.2);
+      --text: #F5F5F0;
+      --muted: #888;
+      --white: #ffffff;
+    }
+
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+    }
+
+    /* ANNOUNCEMENT */
+    .announcement {
+      background: var(--gold);
+      color: var(--black);
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--black);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 200;
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    nav { display: flex; gap: 36px; }
+
+    nav a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+    nav a:hover { color: var(--gold); }
+
+    .btn-header {
+      padding: 10px 24px;
+      background: var(--gold);
+      color: var(--black);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.25s;
+    }
+    .btn-header:hover { background: var(--gold2); }
+
+    /* HERO */
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero-left { padding: 80px 0; }
+
+    .hero-tag {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      margin-bottom: 28px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(44px, 5vw, 72px);
+      font-weight: 700;
+      line-height: 1.08;
+      margin-bottom: 24px;
+    }
+
+    .hero-title span { color: var(--gold); font-style: italic; }
+
+    .hero-desc {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 440px;
+      margin-bottom: 40px;
+    }
+
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .btn-primary {
+      padding: 16px 36px;
+      background: var(--gold);
+      color: var(--black);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold2); transform: translateY(-1px); }
+
+    .btn-outline {
+      padding: 16px 36px;
+      background: transparent;
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 52px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    .stat-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .hero-right {
+      height: 600px;
+      position: relative;
+    }
+
+    .hero-img-frame {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .hero-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.8);
+    }
+
+    .hero-img-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, #1a1a1a 0%, #222 50%, #111 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 28px;
+      left: 28px;
+      background: rgba(0,0,0,0.85);
+      border: 1px solid var(--border);
+      padding: 16px 20px;
+      backdrop-filter: blur(8px);
+    }
+
+    .badge-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+    .badge-value { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--gold); margin-top: 4px; }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .trust-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 22px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 1px;
+    }
+
+    .trust-icon { color: var(--gold); font-size: 14px; }
+
+    /* SHOP */
+    .shop {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .shop-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .shop-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 600;
+    }
+
+    .filter-row { display: flex; gap: 8px; }
+
+    .filter-btn {
+      padding: 8px 18px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--black);
+    }
+
+    /* PRODUCT GRID */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    /* PRODUCT CARD */
+    .product-card {
+      background: var(--card);
+      border: 1px solid transparent;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .card-img-wrap {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease, filter 0.4s ease;
+      filter: grayscale(15%) brightness(0.9);
+    }
+
+    .product-card:hover .card-img-wrap img {
+      transform: scale(1.07);
+      filter: grayscale(0%) brightness(1);
+    }
+
+    .card-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, #181818 0%, #222 100%);
+    }
+
+    .badges {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .badge {
+      padding: 4px 10px;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .badge-avail { background: var(--gold); color: #000; }
+    .badge-new { background: #fff; color: #000; }
+
+    .card-save {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 34px;
+      height: 34px;
+      background: rgba(0,0,0,0.7);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .card-save:hover { color: var(--gold); border-color: var(--gold); }
+
+    .card-body {
+      padding: 20px 20px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-brand {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .card-desc {
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 16px;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-specs {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .spec-label {
+      font-size: 8px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .spec-val {
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .price-label {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .card-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    .btn-inquire {
+      flex: 1;
+      padding: 12px 16px;
+      background: var(--gold);
+      color: var(--black);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-inquire:hover { background: var(--gold2); }
+
+    /* SKELETON */
+    .skeleton-card { background: var(--card); border: 1px solid var(--border); animation: shimmer 1.5s infinite; }
+    .skeleton-img { aspect-ratio: 1; background: #222; }
+    .skeleton-body { padding: 20px; }
+    .skeleton-line { height: 10px; background: #2a2a2a; border-radius: 2px; margin-bottom: 10px; }
+    .skeleton-line.s { width: 40%; }
+    .skeleton-line.m { width: 70%; }
+    .skeleton-line.f { width: 100%; }
+    @keyframes shimmer { 0%,100%{opacity:1} 50%{opacity:.5} }
+    @keyframes spin { to{transform:rotate(360deg)} }
+
+    /* WHY */
+    .why { background: var(--dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .why-inner { max-width: 1400px; margin: 0 auto; padding: 80px 40px; }
+
+    .section-head { text-align: center; margin-bottom: 52px; }
+    .section-head h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px,3vw,40px); font-weight: 600; margin-top: 10px; }
+
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; }
+
+    .why-item { text-align: center; }
+    .why-icon { font-size: 28px; color: var(--gold); margin-bottom: 14px; }
+    .why-title { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; margin-bottom: 10px; }
+    .why-desc { font-size: 12px; line-height: 1.7; color: var(--muted); }
+
+    /* MODAL */
+    .overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 500;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .overlay.open { opacity: 1; pointer-events: all; }
+
+    .modal {
+      background: var(--dark);
+      border: 1px solid var(--border);
+      width: 100%; max-width: 560px;
+      max-height: 90vh; overflow-y: auto;
+      position: relative;
+      transform: translateY(24px);
+      transition: transform 0.3s;
+    }
+    .overlay.open .modal { transform: translateY(0); }
+
+    .modal-hd {
+      background: var(--card);
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .modal-hd h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; }
+
+    .modal-x {
+      background: none; border: none; color: var(--muted);
+      font-size: 20px; cursor: pointer; transition: color 0.2s; line-height: 1;
+    }
+    .modal-x:hover { color: var(--white); }
+
+    .modal-bd { padding: 28px; }
+
+    .modal-tag {
+      background: rgba(201,168,76,0.06);
+      border: 1px solid var(--border);
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex; align-items: center; gap: 12px;
+    }
+
+    .modal-watch-name { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 600; color: var(--gold); }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+
+    .fg { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+    .fg label { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+    .fg input, .fg textarea, .fg select {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 12px 14px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; font-weight: 300;
+      outline: none;
+      transition: border-color 0.25s;
+      width: 100%;
+    }
+    .fg input:focus, .fg textarea:focus, .fg select:focus { border-color: var(--gold); }
+    .fg textarea { height: 90px; resize: none; }
+    .fg select option { background: #1a1a1a; }
+
+    .btn-submit {
+      width: 100%; padding: 16px;
+      background: var(--gold); color: var(--black);
+      font-size: 12px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; border: none; cursor: pointer;
+      transition: background 0.25s; font-family: 'Inter', sans-serif;
+      margin-top: 6px;
+    }
+    .btn-submit:hover { background: var(--gold2); }
+
+    .success-box { text-align: center; padding: 20px 0; }
+    .success-icon {
+      width: 60px; height: 60px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; font-size: 22px; color: var(--gold);
+    }
+    .success-box h4 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 10px; }
+    .success-box p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* FOOTER */
+    footer { background: #080808; border-top: 1px solid var(--border); }
+    .footer-top {
+      max-width: 1400px; margin: 0 auto;
+      padding: 60px 40px;
+      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px;
+    }
+    .footer-logo { display: block; margin-bottom: 14px; }
+    .footer-about { font-size: 13px; line-height: 1.7; color: var(--muted); max-width: 280px; }
+    .footer-col h4 { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .footer-col a { display: block; font-size: 13px; color: var(--muted); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-btm {
+      border-top: 1px solid var(--border);
+      padding: 20px 40px; max-width: 1400px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 11px; color: var(--muted);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .footer-top { grid-template-columns: 1fr; gap: 36px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .header-inner { padding: 0 20px; }
+      nav { display: none; }
+      .hero, .shop, .why-inner { padding-left: 20px; padding-right: 20px; }
+      .trust-inner { gap: 20px; padding: 20px; }
+      .product-grid { grid-template-columns: 1fr; }
+      .shop-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .footer-top, .footer-btm { padding-left: 20px; padding-right: 20px; }
+      .footer-btm { flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT -->
+  <div class="announcement">✦ Free Worldwide Shipping on All Timepieces — Authenticated &amp; Insured ✦</div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo">Horologium</a>
+      <nav>
+        <a href="#collection">Collection</a>
+        <a href="#why">About</a>
+        <a href="#" onclick="openModal('General Inquiry');return false;">Contact</a>
+      </nav>
+      <button class="btn-header" onclick="openModal('General Inquiry')">Inquire Now</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">✦ New Arrivals 2026</div>
+      <h1 class="hero-title">
+        Exceptional<br>
+        Watches for<br>
+        <span>True Connoisseurs</span>
+      </h1>
+      <p class="hero-desc">
+        Hand-selected luxury timepieces from the world's most prestigious maisons. Every piece authenticated, every delivery insured and guaranteed.
+      </p>
+      <div class="hero-btns">
+        <a href="#collection" class="btn-primary">Shop Collection</a>
+        <a href="#" class="btn-outline" onclick="openModal('General Inquiry');return false;">Private Consultation</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num">500+</div><div class="stat-label">Sold</div></div>
+        <div><div class="stat-num">100%</div><div class="stat-label">Authenticated</div></div>
+        <div><div class="stat-num">24h</div><div class="stat-label">Response</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img-frame" id="heroFrame">
+        <div class="hero-img-placeholder">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" style="opacity:0.15">
+            <circle cx="60" cy="60" r="52" stroke="#C9A84C" stroke-width="1.5"/>
+            <circle cx="60" cy="60" r="38" stroke="#C9A84C" stroke-width="1"/>
+            <circle cx="60" cy="60" r="4" fill="#C9A84C"/>
+            <line x1="60" y1="10" x2="60" y2="24" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+            <line x1="60" y1="96" x2="60" y2="110" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+            <line x1="10" y1="60" x2="24" y2="60" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+            <line x1="96" y1="60" x2="110" y2="60" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+            <line x1="60" y1="60" x2="82" y2="48" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="60" y1="60" x2="54" y2="80" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="hero-badge">
+        <div class="badge-label">Featured Piece</div>
+        <div class="badge-value" id="heroBadge">Luxury Collection</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-item"><span class="trust-icon">✓</span> Certified Authentication</div>
+      <div class="trust-item"><span class="trust-icon">✓</span> Insured Worldwide Shipping</div>
+      <div class="trust-item"><span class="trust-icon">✓</span> 14-Day Returns</div>
+      <div class="trust-item"><span class="trust-icon">✓</span> Private Acquisition</div>
+      <div class="trust-item"><span class="trust-icon">✓</span> Discreet Packaging</div>
+    </div>
+  </div>
+
+  <!-- COLLECTION -->
+  <section class="shop" id="collection">
+    <div class="shop-header">
+      <div>
+        <p class="eyebrow">✦ Curated Selection</p>
+        <h2>Our Watch Collection</h2>
+      </div>
+      <div class="filter-row">
+        <button class="filter-btn active" onclick="doFilter(this,'all')">All</button>
+        <button class="filter-btn" onclick="doFilter(this,'rolex')">Rolex</button>
+        <button class="filter-btn" onclick="doFilter(this,'omega')">Omega</button>
+        <button class="filter-btn" onclick="doFilter(this,'other')">Others</button>
+      </div>
+    </div>
+
+    <div class="product-grid" id="grid">
+      <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line s"></div><div class="skeleton-line m"></div><div class="skeleton-line f"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line s"></div><div class="skeleton-line m"></div><div class="skeleton-line f"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line s"></div><div class="skeleton-line m"></div><div class="skeleton-line f"></div></div></div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why" id="why">
+    <div class="why-inner">
+      <div class="section-head">
+        <p class="eyebrow">Why Choose Us</p>
+        <h2>The Horologium Promise</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item"><div class="why-icon">🔍</div><div class="why-title">100% Authenticated</div><p class="why-desc">Every timepiece passes rigorous multi-point authentication by certified horologists before listing.</p></div>
+        <div class="why-item"><div class="why-icon">🌍</div><div class="why-title">Global Delivery</div><p class="why-desc">Fully insured, discreet shipping to over 80 countries. Your timepiece arrives protected and on time.</p></div>
+        <div class="why-item"><div class="why-icon">💬</div><div class="why-title">Personal Service</div><p class="why-desc">A dedicated acquisition specialist is assigned to every client — from inquiry to delivery.</p></div>
+        <div class="why-item"><div class="why-icon">🔄</div><div class="why-title">14-Day Returns</div><p class="why-desc">Complete peace of mind with our no-questions-asked return policy on every purchase.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <a href="#" class="logo footer-logo">Horologium</a>
+        <p class="footer-about">Purveyors of rare and exceptional timepieces. Connecting discerning collectors with the world's finest watches.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Collection</h4>
+        <a href="#collection">All Watches</a>
+        <a href="#collection">Rolex</a>
+        <a href="#collection">Patek Philippe</a>
+        <a href="#collection">Omega</a>
+        <a href="#collection">Audemars Piguet</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#" onclick="openModal('General Inquiry');return false;">Private Acquisition</a>
+        <a href="#">Authentication</a>
+        <a href="#">Consignment</a>
+        <a href="#" onclick="openModal('General Inquiry');return false;">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-btm">
+      <span>© 2026 Horologium. All Rights Reserved.</span>
+      <span>Luxury Timepieces — Authenticated &amp; Guaranteed</span>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="overlay" id="overlay" onclick="overlayClick(event)">
+    <div class="modal">
+      <div class="modal-hd">
+        <h3>Private Acquisition</h3>
+        <button class="modal-x" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-bd">
+        <div class="modal-tag">
+          <span style="font-size:20px;color:var(--gold)">⌚</span>
+          <div>
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:4px">Inquiring About</div>
+            <div class="modal-watch-name" id="mwName">General Inquiry</div>
+          </div>
+        </div>
+
+        <div id="mForm">
+          <div class="form-row">
+            <div class="fg"><label>First Name *</label><input type="text" id="fn" placeholder="John"/></div>
+            <div class="fg"><label>Last Name *</label><input type="text" id="ln" placeholder="Smith"/></div>
+          </div>
+          <div class="fg"><label>Email *</label><input type="email" id="em" placeholder="john@example.com"/></div>
+          <div class="fg"><label>Phone / WhatsApp</label><input type="tel" id="ph" placeholder="+1 000 000 0000"/></div>
+          <div class="fg">
+            <label>Budget Range</label>
+            <select id="bg">
+              <option value="">Select range...</option>
+              <option>Under $5,000</option>
+              <option>$5,000 – $15,000</option>
+              <option>$15,000 – $30,000</option>
+              <option>$30,000 – $60,000</option>
+              <option>$60,000+</option>
+            </select>
+          </div>
+          <div class="fg"><label>Message</label><textarea id="ms" placeholder="I am interested in..."></textarea></div>
+          <button class="btn-submit" onclick="doSubmit()">Send Inquiry →</button>
+        </div>
+
+        <div id="mSuccess" class="success-box" style="display:none">
+          <div class="success-icon">✓</div>
+          <h4>Inquiry Received</h4>
+          <p>Thank you. A member of our acquisition team<br>will contact you within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API = 'https://dev-testadsite.pantheonsite.io/wp-json/wp/v2/posts?_embed&per_page=20';
+    let all = [];
+    let active = '';
+
+    async function load() {
+      try {
+        const r = await fetch(API);
+        if (!r.ok) throw new Error();
+        const posts = await r.json();
+        all = posts.filter(p => !p.title.rendered.toLowerCase().includes('hello world'));
+        render(all);
+        setHero(all);
+      } catch(e) {
+        document.getElementById('grid').innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:80px 20px;color:var(--muted);font-size:13px">Unable to load collection. Please try again later.</div>`;
+      }
+    }
+
+    function img(post) {
+      try { return post._embedded['wp:featuredmedia'][0].source_url; } catch { return null; }
+    }
+
+    function brand(t) {
+      for (const b of ['Rolex','Omega','Patek','Audemars','TAG Heuer','Seiko','Tissot','IWC']) {
+        if (t.includes(b)) return b;
+      }
+      return t.split(' ')[0];
+    }
+
+    function price(c) {
+      const m = c.match(/\$[\d,]+/);
+      return m ? m[0] : 'P.O.A.';
+    }
+
+    function strip(h) { return h.replace(/<[^>]*>/g, ''); }
+
+    function render(watches) {
+      const g = document.getElementById('grid');
+      if (!watches.length) {
+        g.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--muted);font-size:13px">No timepieces in this category.</div>`;
+        return;
+      }
+      g.innerHTML = watches.map((p, i) => {
+        const t = p.title.rendered;
+        const c = strip(p.content.rendered);
+        const b = brand(t);
+        const pr = price(c);
+        const imgUrl = img(p);
+        const imgEl = imgUrl
+          ? `<img src="${imgUrl}" alt="${t}" loading="lazy"/>`
+          : `<div class="card-img-placeholder"><svg width="80" height="80" viewBox="0 0 80 80" fill="none" style="opacity:0.2"><circle cx="40" cy="40" r="34" stroke="#C9A84C" stroke-width="1"/><circle cx="40" cy="40" r="24" stroke="#C9A84C" stroke-width=".75"/><circle cx="40" cy="40" r="3" fill="#C9A84C"/><line x1="40" y1="8" x2="40" y2="18" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/><line x1="40" y1="62" x2="40" y2="72" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="40" x2="18" y2="40" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/><line x1="62" y1="40" x2="72" y2="40" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/><line x1="40" y1="40" x2="54" y2="32" stroke="#C9A84C" stroke-width="1" stroke-linecap="round"/><line x1="40" y1="40" x2="36" y2="52" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></div>`;
+
+        return `<div class="product-card" data-brand="${b.toLowerCase()}">
+          <div class="card-img-wrap">
+            ${imgEl}
+            <div class="badges">
+              <span class="badge badge-avail">Available</span>
+              ${i < 2 ? '<span class="badge badge-new">New</span>' : ''}
+            </div>
+            <div class="card-save">♡</div>
+          </div>
+          <div class="card-body">
+            <p class="card-brand">${b}</p>
+            <h3 class="card-name">${t}</h3>
+            <p class="card-desc">${c.substring(0,110)}...</p>
+            <div class="card-specs">
+              <div><span class="spec-label">Condition</span><span class="spec-val">Mint</span></div>
+              <div><span class="spec-label">Papers</span><span class="spec-val">Included</span></div>
+              <div><span class="spec-label">Warranty</span><span class="spec-val">2 Years</span></div>
+            </div>
+            <div class="card-footer">
+              <div><div class="price-label">Price</div><div class="card-price">${pr}</div></div>
+              <button class="btn-inquire" onclick="openModal('${t.replace(/'/g,"\\'")}')">Inquire Now →</button>
+            </div>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    function setHero(watches) {
+      if (!watches.length) return;
+      const first = watches[0];
+      const imgUrl = img(first);
+      if (imgUrl) {
+        document.getElementById('heroFrame').innerHTML = `<img src="${imgUrl}" alt="Hero" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.75)"/>`;
+      }
+      document.getElementById('heroBadge').textContent = first.title.rendered;
+    }
+
+    function doFilter(btn, filter) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (filter === 'all') { render(all); return; }
+      render(all.filter(p => {
+        const t = p.title.rendered.toLowerCase();
+        if (filter === 'rolex') return t.includes('rolex');
+        if (filter === 'omega') return t.includes('omega');
+        return !t.includes('rolex') && !t.includes('omega');
+      }));
+    }
+
+    function openModal(name) {
+      active = name;
+      document.getElementById('mwName').textContent = name;
+      document.getElementById('ms').value = name !== 'General Inquiry' ? `I am interested in the ${name}.` : '';
+      document.getElementById('mForm').style.display = 'block';
+      document.getElementById('mSuccess').style.display = 'none';
+      document.getElementById('overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      if (typeof fbq !== 'undefined') fbq('track', 'Lead', {content_name: name});
+    }
+
+    function closeModal() {
+      document.getElementById('overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function overlayClick(e) { if (e.target.id === 'overlay') closeModal(); }
+
+    function doSubmit() {
+      const fn = document.getElementById('fn').value.trim();
+      const em = document.getElementById('em').value.trim();
+      if (!fn || !em) { alert('Please enter your name and email.'); return; }
+      if (typeof fbq !== 'undefined') fbq('track', 'Contact', {content_name: active});
+      document.getElementById('mForm').style.display = 'none';
+      document.getElementById('mSuccess').style.display = 'block';
+    }
+
+    load();
+  </script>
+</body>
+</html>
