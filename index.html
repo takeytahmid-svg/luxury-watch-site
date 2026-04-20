@@ -891,11 +891,21 @@
     }
 
     function img(post) {
-      try {
-        const url = post._embedded['wp:featuredmedia'][0].source_url;
-        // Use CORS proxy to bypass Pantheon image restrictions
-        return `https://images.weserv.nl/?url=${encodeURIComponent(url)}&w=600&output=webp`;
-      } catch { return null; }
+      let url = null;
+      // Method 1: featured image
+      try { url = post._embedded['wp:featuredmedia'][0].source_url; } catch {}
+      // Method 2: first img tag inside post content
+      if (!url) {
+        try {
+          const tmp = document.createElement('div');
+          tmp.innerHTML = post.content.rendered;
+          const tag = tmp.querySelector('img');
+          if (tag) url = tag.getAttribute('src') || tag.getAttribute('data-src');
+        } catch {}
+      }
+      if (!url) return null;
+      // Route through CORS proxy
+      return 'https://images.weserv.nl/?url=' + encodeURIComponent(url) + '&w=600&output=webp';
     }
 
     function brand(t) {
