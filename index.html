@@ -891,7 +891,11 @@
     }
 
     function img(post) {
-      try { return post._embedded['wp:featuredmedia'][0].source_url; } catch { return null; }
+      try {
+        const url = post._embedded['wp:featuredmedia'][0].source_url;
+        // Use CORS proxy to bypass Pantheon image restrictions
+        return `https://images.weserv.nl/?url=${encodeURIComponent(url)}&w=600&output=webp`;
+      } catch { return null; }
     }
 
     function brand(t) {
@@ -956,7 +960,7 @@
       const first = watches[0];
       const imgUrl = img(first);
       if (imgUrl) {
-        document.getElementById('heroFrame').innerHTML = `<img src="${imgUrl}" alt="Hero" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.75)"/>`;
+        document.getElementById('heroFrame').innerHTML = `<img src="${imgUrl}" alt="Hero" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.75)" crossorigin="anonymous"/>`;
       }
       document.getElementById('heroBadge').textContent = first.title.rendered;
     }
