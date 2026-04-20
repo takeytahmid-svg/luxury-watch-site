@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Loading... — HOROLOGIUM</title>
+
+  <!-- FACEBOOK PIXEL -->
+  <!--
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+    s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','YOUR_PIXEL_ID');
+    fbq('track','PageView');
+  </script>
+  -->
+
+  <!-- GOOGLE TAG MANAGER -->
+  <!--
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;
+  f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXX');
+  </script>
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold2: #E8C96A;
+      --black: #0B0B0B;
+      --dark: #141414;
+      --card: #1A1A1A;
+      --border: rgba(201,168,76,0.2);
+      --text: #F5F5F0;
+      --muted: #888;
+    }
+
+    *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--text); font-family: 'Inter', sans-serif; font-weight: 300; }
+
+    /* HEADER */
+    .announcement { background: var(--gold); color: #000; text-align: center; padding: 10px; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; }
+
+    header { background: var(--black); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 200; }
+    .header-inner { max-width: 1400px; margin: 0 auto; padding: 0 40px; height: 72px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--gold); letter-spacing: 4px; text-transform: uppercase; text-decoration: none; }
+    nav { display: flex; gap: 36px; }
+    nav a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; transition: color 0.25s; }
+    nav a:hover { color: var(--gold); }
+    .btn-header { padding: 10px 24px; background: var(--gold); color: #000; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.25s; }
+    .btn-header:hover { background: var(--gold2); }
+
+    /* BREADCRUMB */
+    .breadcrumb { max-width: 1400px; margin: 0 auto; padding: 24px 40px 0; display: flex; align-items: center; gap: 10px; font-size: 11px; color: var(--muted); }
+    .breadcrumb a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb span { color: var(--gold); }
+
+    /* PRODUCT LAYOUT */
+    .product-wrap { max-width: 1400px; margin: 0 auto; padding: 40px 40px 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+    /* LEFT — GALLERY */
+    .gallery { position: sticky; top: 100px; }
+
+    .main-img-wrap { aspect-ratio: 1; overflow: hidden; background: #111; position: relative; margin-bottom: 16px; }
+    .main-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+    .main-img-wrap:hover img { transform: scale(1.04); }
+
+    .img-badge { position: absolute; top: 20px; left: 20px; background: var(--gold); color: #000; font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; padding: 5px 12px; }
+
+    .img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(145deg, #181818, #222); }
+
+    /* RIGHT — DETAILS */
+    .product-details {}
+
+    .prod-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+
+    .prod-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 44px); font-weight: 700; line-height: 1.15; margin-bottom: 20px; }
+
+    .prod-rating { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
+    .stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; }
+    .rating-text { font-size: 12px; color: var(--muted); }
+
+    .prod-price-wrap { background: var(--card); border: 1px solid var(--border); padding: 24px; margin-bottom: 28px; }
+    .price-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .prod-price { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 600; color: var(--gold); }
+    .price-note { font-size: 11px; color: var(--muted); margin-top: 6px; }
+
+    .prod-specs { margin-bottom: 28px; }
+    .specs-title { font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+    .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .spec-item { background: var(--card); border: 1px solid rgba(255,255,255,0.05); padding: 14px 16px; }
+    .spec-item-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 4px; }
+    .spec-item-val { font-size: 13px; font-weight: 500; color: var(--text); }
+
+    .prod-desc { margin-bottom: 32px; }
+    .desc-title { font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .desc-text { font-size: 14px; line-height: 1.85; color: rgba(255,255,255,0.7); }
+
+    .prod-actions { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+
+    .btn-inquire-main { padding: 18px 40px; background: var(--gold); color: #000; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.25s; font-family: 'Inter', sans-serif; width: 100%; }
+    .btn-inquire-main:hover { background: var(--gold2); transform: translateY(-1px); }
+
+    .btn-consult { padding: 18px 40px; background: transparent; color: var(--text); font-size: 12px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.2); cursor: pointer; transition: all 0.25s; font-family: 'Inter', sans-serif; width: 100%; }
+    .btn-consult:hover { border-color: var(--gold); color: var(--gold); }
+
+    .trust-mini { display: flex; gap: 20px; flex-wrap: wrap; padding-top: 24px; border-top: 1px solid var(--border); }
+    .trust-mini-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); }
+    .trust-mini-icon { color: var(--gold); font-size: 12px; }
+
+    /* RELATED */
+    .related { max-width: 1400px; margin: 0 auto; padding: 0 40px 100px; }
+    .related-header { margin-bottom: 40px; }
+    .eyebrow { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .related-header h2 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 600; }
+
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+
+    .rel-card { background: var(--card); border: 1px solid transparent; transition: all 0.3s; cursor: pointer; text-decoration: none; display: block; color: var(--text); }
+    .rel-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .rel-img { aspect-ratio: 1; overflow: hidden; background: #111; }
+    .rel-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; filter: grayscale(10%); }
+    .rel-card:hover .rel-img img { transform: scale(1.06); filter: grayscale(0%); }
+    .rel-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(145deg, #181818, #222); }
+    .rel-body { padding: 16px 18px 20px; }
+    .rel-brand { font-size: 9px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
+    .rel-name { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; margin-bottom: 12px; line-height: 1.3; }
+    .rel-footer { display: flex; justify-content: space-between; align-items: center; }
+    .rel-price { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--gold); }
+    .rel-btn { font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border); padding: 6px 12px; transition: all 0.2s; }
+    .rel-card:hover .rel-btn { color: var(--gold); border-color: var(--gold); }
+
+    /* LOADING */
+    .page-loading { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; gap: 20px; }
+    .spinner { width: 40px; height: 40px; border: 2px solid var(--border); border-top-color: var(--gold); border-radius: 50%; animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+
+    /* MODAL */
+    .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 500; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .overlay.open { opacity: 1; pointer-events: all; }
+    .modal { background: var(--dark); border: 1px solid var(--border); width: 100%; max-width: 540px; max-height: 90vh; overflow-y: auto; position: relative; transform: translateY(24px); transition: transform 0.3s; }
+    .overlay.open .modal { transform: translateY(0); }
+    .modal-hd { background: var(--card); padding: 24px 28px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .modal-hd h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; }
+    .modal-x { background: none; border: none; color: var(--muted); font-size: 20px; cursor: pointer; transition: color 0.2s; line-height: 1; }
+    .modal-x:hover { color: #fff; }
+    .modal-bd { padding: 28px; }
+    .modal-tag { background: rgba(201,168,76,0.06); border: 1px solid var(--border); padding: 14px 18px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+    .modal-wname { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 600; color: var(--gold); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .fg { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+    .fg label { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+    .fg input, .fg textarea, .fg select { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); padding: 12px 14px; color: var(--text); font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 300; outline: none; transition: border-color 0.25s; width: 100%; }
+    .fg input:focus, .fg textarea:focus, .fg select:focus { border-color: var(--gold); }
+    .fg textarea { height: 90px; resize: none; }
+    .fg select option { background: #1a1a1a; }
+    .btn-submit { width: 100%; padding: 16px; background: var(--gold); color: #000; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.25s; font-family: 'Inter', sans-serif; margin-top: 6px; }
+    .btn-submit:hover { background: var(--gold2); }
+    .success-box { text-align: center; padding: 20px 0; }
+    .success-icon { width: 60px; height: 60px; background: rgba(201,168,76,0.1); border: 1px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 22px; color: var(--gold); }
+    .success-box h4 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 10px; }
+    .success-box p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* FOOTER */
+    footer { background: #080808; border-top: 1px solid var(--border); }
+    .footer-btm { max-width: 1400px; margin: 0 auto; padding: 24px 40px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--muted); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .product-wrap { grid-template-columns: 1fr; gap: 40px; }
+      .gallery { position: static; }
+    }
+    @media (max-width: 640px) {
+      .header-inner, .breadcrumb, .product-wrap, .related { padding-left: 20px; padding-right: 20px; }
+      nav { display: none; }
+      .specs-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-btm { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="announcement">✦ Free Worldwide Shipping — Authenticated &amp; Insured ✦</div>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">Horologium</a>
+      <nav>
+        <a href="index.html#collection">Collection</a>
+        <a href="index.html#why">About</a>
+        <a href="#" onclick="openModal();return false;">Contact</a>
+      </nav>
+      <button class="btn-header" onclick="openModal()">Inquire Now</button>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="index.html">Home</a>
+    <span>›</span>
+    <a href="index.html#collection">Collection</a>
+    <span>›</span>
+    <span id="bcTitle">Loading...</span>
+  </div>
+
+  <!-- MAIN PRODUCT -->
+  <div id="pageContent">
+    <div class="page-loading">
+      <div class="spinner"></div>
+      <p class="loading-text">Loading timepiece</p>
+    </div>
+  </div>
+
+  <!-- RELATED WATCHES -->
+  <div class="related" id="relatedSection" style="display:none">
+    <div class="related-header">
+      <p class="eyebrow">✦ You May Also Like</p>
+      <h2>Related Timepieces</h2>
+    </div>
+    <div class="related-grid" id="relatedGrid"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-btm">
+      <span>© 2026 Horologium. All Rights Reserved.</span>
+      <span>Luxury Timepieces — Authenticated &amp; Guaranteed</span>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="overlay" id="overlay" onclick="overlayClick(event)">
+    <div class="modal">
+      <div class="modal-hd">
+        <h3>Private Acquisition</h3>
+        <button class="modal-x" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-bd">
+        <div class="modal-tag">
+          <span style="font-size:20px;color:var(--gold)">⌚</span>
+          <div>
+            <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:4px">Inquiring About</div>
+            <div class="modal-wname" id="mwName">This Timepiece</div>
+          </div>
+        </div>
+        <div id="mForm">
+          <div class="form-row">
+            <div class="fg"><label>First Name *</label><input type="text" id="fn" placeholder="John"/></div>
+            <div class="fg"><label>Last Name *</label><input type="text" id="ln" placeholder="Smith"/></div>
+          </div>
+          <div class="fg"><label>Email *</label><input type="email" id="em" placeholder="john@example.com"/></div>
+          <div class="fg"><label>Phone / WhatsApp</label><input type="tel" id="ph" placeholder="+1 000 000 0000"/></div>
+          <div class="fg">
+            <label>Budget Range</label>
+            <select id="bg">
+              <option value="">Select range...</option>
+              <option>Under $5,000</option>
+              <option>$5,000 – $15,000</option>
+              <option>$15,000 – $30,000</option>
+              <option>$30,000 – $60,000</option>
+              <option>$60,000+</option>
+            </select>
+          </div>
+          <div class="fg"><label>Message</label><textarea id="ms"></textarea></div>
+          <button class="btn-submit" onclick="doSubmit()">Send Inquiry →</button>
+        </div>
+        <div id="mSuccess" class="success-box" style="display:none">
+          <div class="success-icon">✓</div>
+          <h4>Inquiry Received</h4>
+          <p>Thank you. Our acquisition team<br>will contact you within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_BASE = 'https://dev-testadsite.pantheonsite.io/wp-json/wp/v2';
+    const PROXY = 'https://images.weserv.nl/?url=';
+    let currentTitle = '';
+
+    // Get post ID from URL
+    const params = new URLSearchParams(window.location.search);
+    const postId = params.get('id');
+
+    function proxyImg(url) {
+      if (!url) return null;
+      return PROXY + encodeURIComponent(url) + '&w=800&output=webp';
+    }
+
+    function getImg(post) {
+      let url = null;
+      try { url = post._embedded['wp:featuredmedia'][0].source_url; } catch {}
+      if (!url) {
+        try {
+          const tmp = document.createElement('div');
+          tmp.innerHTML = post.content.rendered;
+          const tag = tmp.querySelector('img');
+          if (tag) url = tag.getAttribute('src') || tag.getAttribute('data-src');
+        } catch {}
+      }
+      return url ? proxyImg(url) : null;
+    }
+
+    function getPrice(content) {
+      const m = content.match(/\$[\d,]+/);
+      return m ? m[0] : 'Price on Application';
+    }
+
+    function getBrand(title) {
+      for (const b of ['Rolex','Omega','Patek','Audemars','TAG Heuer','Seiko','Tissot','IWC']) {
+        if (title.includes(b)) return b;
+      }
+      return title.split(' ')[0];
+    }
+
+    function strip(html) { return html.replace(/<[^>]*>/g, ''); }
+
+    async function loadProduct() {
+      if (!postId) {
+        window.location.href = 'index.html';
+        return;
+      }
+
+      try {
+        const res = await fetch(`${API_BASE}/posts/${postId}?_embed`);
+        if (!res.ok) throw new Error();
+        const post = await res.json();
+
+        const title = post.title.rendered;
+        const content = strip(post.content.rendered);
+        const brand = getBrand(title);
+        const price = getPrice(content);
+        const imgUrl = getImg(post);
+
+        currentTitle = title;
+        document.title = `${title} — HOROLOGIUM`;
+        document.getElementById('bcTitle').textContent = title;
+        document.getElementById('mwName').textContent = title;
+        document.getElementById('ms').value = `I am interested in the ${title}.`;
+
+        const imgEl = imgUrl
+          ? `<img src="${imgUrl}" alt="${title}"/>`
+          : `<div class="img-placeholder">
+               <svg width="100" height="100" viewBox="0 0 100 100" fill="none" style="opacity:0.15">
+                 <circle cx="50" cy="50" r="44" stroke="#C9A84C" stroke-width="1.5"/>
+                 <circle cx="50" cy="50" r="32" stroke="#C9A84C" stroke-width="1"/>
+                 <circle cx="50" cy="50" r="4" fill="#C9A84C"/>
+                 <line x1="50" y1="8" x2="50" y2="20" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+                 <line x1="50" y1="80" x2="50" y2="92" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+                 <line x1="8" y1="50" x2="20" y2="50" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+                 <line x1="80" y1="50" x2="92" y2="50" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+                 <line x1="50" y1="50" x2="68" y2="40" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+                 <line x1="50" y1="50" x2="44" y2="64" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+               </svg>
+             </div>`;
+
+        document.getElementById('pageContent').innerHTML = `
+          <div class="product-wrap">
+            <!-- GALLERY -->
+            <div class="gallery">
+              <div class="main-img-wrap">
+                ${imgEl}
+                <div class="img-badge">Available</div>
+              </div>
+            </div>
+
+            <!-- DETAILS -->
+            <div class="product-details">
+              <p class="prod-eyebrow">${brand}</p>
+              <h1 class="prod-title">${title}</h1>
+
+              <div class="prod-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-text">Certified Authentic — Mint Condition</span>
+              </div>
+
+              <div class="prod-price-wrap">
+                <div class="price-label">Acquisition Price</div>
+                <div class="prod-price">${price}</div>
+                <div class="price-note">Includes authentication certificate, box &amp; papers</div>
+              </div>
+
+              <div class="prod-specs">
+                <p class="specs-title">Timepiece Details</p>
+                <div class="specs-grid">
+                  <div class="spec-item"><div class="spec-item-label">Condition</div><div class="spec-item-val">Mint / Unworn</div></div>
+                  <div class="spec-item"><div class="spec-item-label">Papers</div><div class="spec-item-val">Full Set Included</div></div>
+                  <div class="spec-item"><div class="spec-item-label">Warranty</div><div class="spec-item-val">2 Years Horologium</div></div>
+                  <div class="spec-item"><div class="spec-item-label">Shipping</div><div class="spec-item-val">Insured Worldwide</div></div>
+                  <div class="spec-item"><div class="spec-item-label">Authentication</div><div class="spec-item-val">Certified ✓</div></div>
+                  <div class="spec-item"><div class="spec-item-label">Returns</div><div class="spec-item-val">14-Day Policy</div></div>
+                </div>
+              </div>
+
+              <div class="prod-desc">
+                <p class="desc-title">About This Timepiece</p>
+                <p class="desc-text">${content}</p>
+              </div>
+
+              <div class="prod-actions">
+                <button class="btn-inquire-main" onclick="openModal()">Inquire About This Watch →</button>
+                <button class="btn-consult" onclick="openModal()">Request Private Consultation</button>
+              </div>
+
+              <div class="trust-mini">
+                <div class="trust-mini-item"><span class="trust-mini-icon">✓</span> Authenticated</div>
+                <div class="trust-mini-item"><span class="trust-mini-icon">✓</span> Insured Shipping</div>
+                <div class="trust-mini-item"><span class="trust-mini-icon">✓</span> 14-Day Returns</div>
+                <div class="trust-mini-item"><span class="trust-mini-icon">✓</span> Discreet Packaging</div>
+              </div>
+            </div>
+          </div>`;
+
+        // Track product view in Facebook Pixel
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'ViewContent', { content_name: title, content_category: brand });
+        }
+
+        loadRelated(postId);
+
+      } catch(e) {
+        document.getElementById('pageContent').innerHTML = `
+          <div class="page-loading">
+            <p class="loading-text">Could not load this timepiece.</p>
+            <a href="index.html" style="color:var(--gold);font-size:13px;margin-top:10px">← Back to Collection</a>
+          </div>`;
+      }
+    }
+
+    async function loadRelated(currentId) {
+      try {
+        const res = await fetch(`${API_BASE}/posts?_embed&per_page=20`);
+        const posts = await res.json();
+        const related = posts.filter(p =>
+          String(p.id) !== String(currentId) &&
+          !p.title.rendered.toLowerCase().includes('hello world')
+        ).slice(0, 4);
+
+        if (!related.length) return;
+
+        document.getElementById('relatedSection').style.display = 'block';
+        document.getElementById('relatedGrid').innerHTML = related.map(p => {
+          const t = p.title.rendered;
+          const c = strip(p.content.rendered);
+          const b = getBrand(t);
+          const pr = getPrice(c);
+          const imgUrl = getImg(p);
+          const imgEl = imgUrl
+            ? `<img src="${imgUrl}" alt="${t}" loading="lazy"/>`
+            : `<div class="rel-img-placeholder"><svg width="60" height="60" viewBox="0 0 60 60" fill="none" style="opacity:0.2"><circle cx="30" cy="30" r="26" stroke="#C9A84C" stroke-width="1"/><circle cx="30" cy="30" r="2.5" fill="#C9A84C"/><line x1="30" y1="6" x2="30" y2="14" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/><line x1="30" y1="30" x2="40" y2="24" stroke="#C9A84C" stroke-width="1" stroke-linecap="round"/><line x1="30" y1="30" x2="27" y2="39" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></div>`;
+
+          return `<a class="rel-card" href="product.html?id=${p.id}">
+            <div class="rel-img">${imgEl}</div>
+            <div class="rel-body">
+              <p class="rel-brand">${b}</p>
+              <h3 class="rel-name">${t}</h3>
+              <div class="rel-footer">
+                <span class="rel-price">${pr}</span>
+                <span class="rel-btn">View →</span>
+              </div>
+            </div>
+          </a>`;
+        }).join('');
+      } catch {}
+    }
+
+    // MODAL
+    function openModal() {
+      document.getElementById('mwName').textContent = currentTitle || 'This Timepiece';
+      document.getElementById('ms').value = currentTitle ? `I am interested in the ${currentTitle}.` : '';
+      document.getElementById('mForm').style.display = 'block';
+      document.getElementById('mSuccess').style.display = 'none';
+      document.getElementById('overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: currentTitle });
+    }
+
+    function closeModal() {
+      document.getElementById('overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function overlayClick(e) { if (e.target.id === 'overlay') closeModal(); }
+
+    function doSubmit() {
+      const fn = document.getElementById('fn').value.trim();
+      const em = document.getElementById('em').value.trim();
+      if (!fn || !em) { alert('Please enter your name and email.'); return; }
+      if (typeof fbq !== 'undefined') fbq('track', 'Contact', { content_name: currentTitle });
+      document.getElementById('mForm').style.display = 'none';
+      document.getElementById('mSuccess').style.display = 'block';
+    }
+
+    loadProduct();
+  </script>
+</body>
+</html>

@@ -939,7 +939,7 @@
           : `<div class="card-img-placeholder"><svg width="80" height="80" viewBox="0 0 80 80" fill="none" style="opacity:0.2"><circle cx="40" cy="40" r="34" stroke="#C9A84C" stroke-width="1"/><circle cx="40" cy="40" r="24" stroke="#C9A84C" stroke-width=".75"/><circle cx="40" cy="40" r="3" fill="#C9A84C"/><line x1="40" y1="8" x2="40" y2="18" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/><line x1="40" y1="62" x2="40" y2="72" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="40" x2="18" y2="40" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/><line x1="62" y1="40" x2="72" y2="40" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/><line x1="40" y1="40" x2="54" y2="32" stroke="#C9A84C" stroke-width="1" stroke-linecap="round"/><line x1="40" y1="40" x2="36" y2="52" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg></div>`;
 
         return `<div class="product-card" data-brand="${b.toLowerCase()}">
-          <div class="card-img-wrap">
+          <div class="card-img-wrap" onclick="window.location='product.html?id=${p.id}'" style="cursor:pointer">
             ${imgEl}
             <div class="badges">
               <span class="badge badge-avail">Available</span>
@@ -949,7 +949,7 @@
           </div>
           <div class="card-body">
             <p class="card-brand">${b}</p>
-            <h3 class="card-name">${t}</h3>
+            <h3 class="card-name" onclick="window.location='product.html?id=${p.id}'" style="cursor:pointer">${t}</h3>
             <p class="card-desc">${c.substring(0,110)}...</p>
             <div class="card-specs">
               <div><span class="spec-label">Condition</span><span class="spec-val">Mint</span></div>
@@ -958,7 +958,10 @@
             </div>
             <div class="card-footer">
               <div><div class="price-label">Price</div><div class="card-price">${pr}</div></div>
-              <button class="btn-inquire" onclick="openModal('${t.replace(/'/g,"\\'")}')">Inquire Now →</button>
+              <div style="display:flex;gap:8px;flex:1;margin-left:12px">
+                <button class="btn-inquire" style="flex:1" onclick="openModal('${t.replace(/'/g,"\\'")}')">Inquire →</button>
+                <button class="btn-inquire" style="flex:1;background:transparent;color:var(--gold);border:1px solid var(--gold)" onclick="window.location='product.html?id=${p.id}'">View →</button>
+              </div>
             </div>
           </div>
         </div>`;
